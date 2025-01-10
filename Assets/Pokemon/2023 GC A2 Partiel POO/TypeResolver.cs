@@ -25,6 +25,7 @@ namespace _2023_GC_A2_Partiel_POO.Level_2
         /// 0.8 if resist
         /// 1.0 if same type
         /// 1.2 if vulnerable
+        /// multiplicateur pas exceptionnel mais bon
         /// </returns>
         public static float GetFactor(TYPE attacker, TYPE receiver)
         {
@@ -37,7 +38,13 @@ namespace _2023_GC_A2_Partiel_POO.Level_2
             typeChart.Add(TYPE.FIRE, fireChart);
             typeChart.Add(TYPE.WATER, waterChart);
             typeChart.Add(TYPE.GRASS, grassChart);
-            return typeChart[attacker][receiver];
+            return typeChart[receiver][attacker];
+        }
+
+        public static float GetStab(Type attacker, Type attack)
+        {
+            if (attacker == attack) return 1.5f;
+            return 1;
         }
 
     }

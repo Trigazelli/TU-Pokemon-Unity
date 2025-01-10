@@ -106,7 +106,8 @@ namespace _2023_GC_A2_Partiel_POO.Level_2
         /// <exception cref="NotImplementedException"></exception>
         public void ReceiveAttack(Skill s)
         {
-            CurrentHealth = Mathf.Max(CurrentHealth - (s.Power - _baseDefense), 0);
+            int damage = (int)(s.Power * TypeResolver.GetFactor(s.Type, BaseType));
+            CurrentHealth = Mathf.Max(CurrentHealth - (damage - _baseDefense), 0);
             //Debug.Log("I'm under attack ! Skill is :" + s.GetType());
             CheckAlive();
         }

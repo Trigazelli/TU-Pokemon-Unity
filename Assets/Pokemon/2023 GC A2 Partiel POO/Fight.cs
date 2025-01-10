@@ -29,8 +29,6 @@ namespace _2023_GC_A2_Partiel_POO.Level_2
         /// <exception cref="ArgumentNullException">si une des deux attaques est null</exception>
         public void ExecuteTurn(Skill skillFromCharacter1, Skill skillFromCharacter2)
         {
-            float damageDoneToCharacter1 = skillFromCharacter2.Power * TypeResolver.GetFactor(skillFromCharacter2.Type, Character1.BaseType);
-            float damageDoneToCharacter2 = skillFromCharacter1.Power * TypeResolver.GetFactor(skillFromCharacter1.Type, Character2.BaseType);
             if (Character1.Speed > Character2.Speed)
             {
                 //UnityEngine.Debug.Log("character 1 attacking first");
