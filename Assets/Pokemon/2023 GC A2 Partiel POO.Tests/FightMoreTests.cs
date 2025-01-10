@@ -52,5 +52,25 @@ namespace _2023_GC_A2_Partiel_POO.Tests.Level_2
             Assert.That(bulbizarre.IsAlive, Is.EqualTo(false));
             // RIP bulbizarre
         }
+
+        [Test]
+        public void CharacterReceiveResistedFireBall()
+        {
+            var carapuce = new Character(100, 50, 30, 20, TYPE.WATER);
+            var fireball = new FireBall();
+            var oldHealth = carapuce.CurrentHealth;
+
+            carapuce.ReceiveAttack(fireball); // hp : 100 => 90
+            Assert.That(carapuce.CurrentHealth,
+                Is.EqualTo(oldHealth - (fireball.Power * TypeResolver.GetFactor(fireball.Type, carapuce.BaseType) - carapuce.Defense))); // 100 - (60-30)
+            Assert.That(carapuce.CurrentStatus, Is.EqualTo(null));
+            Assert.That(carapuce.IsAlive, Is.EqualTo(true));
+            Assert.That(carapuce.CurrentHealth, Is.EqualTo(90));
+
+            carapuce.ReceiveAttack(fireball); // hp : 90 => 80
+            Assert.That(carapuce.CurrentHealth, Is.EqualTo(80));
+            Assert.That(carapuce.IsAlive, Is.EqualTo(true));
+            // https://tenor.com/view/pokemon-squirtle-cute-cool-gif-17959904
+        }
     }
 }
