@@ -72,5 +72,17 @@ namespace _2023_GC_A2_Partiel_POO.Tests.Level_2
             Assert.That(carapuce.IsAlive, Is.EqualTo(true));
             // https://tenor.com/view/pokemon-squirtle-cute-cool-gif-17959904
         }
+
+        [Test]
+
+        public void CharacterReceiveStabbedAttack()
+        {
+            var carapuce = new Character(100, 50, 30, 20, TYPE.WATER);
+            var keunotor = new Character(100, 100, 100, 100, TYPE.NORMAL);
+            var punch = new Punch();
+            carapuce.ReceiveAttack(punch, keunotor); // hp : 100 => 35
+            Assert.That(carapuce.CurrentHealth, Is.EqualTo(25));
+
+        }
     }
 }

@@ -41,7 +41,7 @@ namespace _2023_GC_A2_Partiel_POO.Level_2
             return typeChart[receiver][attacker];
         }
 
-        public static float GetStab(Type attacker, Type attack)
+        public static float GetStab(TYPE attacker, TYPE attack)
         {
             if (attacker == attack) return 1.5f;
             return 1;

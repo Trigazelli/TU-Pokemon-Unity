@@ -104,9 +104,14 @@ namespace _2023_GC_A2_Partiel_POO.Level_2
         /// </summary>
         /// <param name="s">skill attaquant</param>
         /// <exception cref="NotImplementedException"></exception>
-        public void ReceiveAttack(Skill s)
+        public void ReceiveAttack(Skill s, Character attacker = null)
         {
             int damage = (int)(s.Power * TypeResolver.GetFactor(s.Type, BaseType));
+            if (attacker != null)
+            {
+                damage = (int)(damage * TypeResolver.GetStab(attacker.BaseType, s.Type));
+            }
+            Debug.Log(TypeResolver.GetStab(attacker.BaseType, s.Type));
             CurrentHealth = Mathf.Max(CurrentHealth - (damage - _baseDefense), 0);
             //Debug.Log("I'm under attack ! Skill is :" + s.GetType());
             CheckAlive();
