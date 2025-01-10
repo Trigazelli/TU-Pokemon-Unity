@@ -1,6 +1,7 @@
 ﻿using _2023_GC_A2_Partiel_POO.Level_2;
 using NUnit.Framework;
 using System;
+using System.Diagnostics;
 
 namespace _2023_GC_A2_Partiel_POO.Tests.Level_2
 {
@@ -46,7 +47,7 @@ namespace _2023_GC_A2_Partiel_POO.Tests.Level_2
             Assert.That(c.Speed, Is.EqualTo(32));
 
             // Increase MaxHealth doesn't increase CurrentHealth
-            Assert.That(c.CurrentHealth, Is.EqualTo(100));  
+            Assert.That(c.CurrentHealth, Is.EqualTo(100));
 
             // Then remove equipment
             c.Unequip();

@@ -20,7 +20,7 @@ namespace _2023_GC_A2_Partiel_POO.Tests.Level_2
         
         // Choisis ce que tu veux ajouter comme feature et fait en au max.
         // Les nouveaux TU doivent être dans ce fichier.
-        // Modifiant des features il est possible que certaines valeurs
+        // En Modifiant des features il est possible que certaines valeurs
             // des TU précédentes ne matchent plus, tu as le droit de réadapter les valeurs
             // de ces anciens TU pour ta nouvelle situation.
         

@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Collections.Generic;
 
 namespace _2023_GC_A2_Partiel_POO.Level_2
 {
@@ -27,7 +28,16 @@ namespace _2023_GC_A2_Partiel_POO.Level_2
         /// </returns>
         public static float GetFactor(TYPE attacker, TYPE receiver)
         {
-            throw new NotImplementedException();
+            if (attacker == TYPE.NORMAL || receiver == TYPE.NORMAL) return 1; 
+            Dictionary<TYPE, Dictionary<TYPE, float>> typeChart = new Dictionary<TYPE, Dictionary<TYPE, float>>();
+            List<TYPE> type = new List<TYPE> {TYPE.GRASS, TYPE.WATER};
+            Dictionary<TYPE, float> fireChart = new Dictionary<TYPE, float>() { { TYPE.NORMAL, 1 }, {TYPE.GRASS, 0.8f }, { TYPE.WATER, 1.2f }, { TYPE.FIRE, 1 } };
+            Dictionary<TYPE, float> waterChart = new Dictionary<TYPE, float>() { { TYPE.NORMAL, 1 }, {TYPE.GRASS, 1.2f }, { TYPE.WATER, 1 }, { TYPE.FIRE, 0.8f } };
+            Dictionary<TYPE, float> grassChart = new Dictionary<TYPE, float>() { { TYPE.NORMAL, 1 }, {TYPE.GRASS, 1 }, { TYPE.WATER, 0.8f }, { TYPE.FIRE, 1.2f } };
+            typeChart.Add(TYPE.FIRE, fireChart);
+            typeChart.Add(TYPE.WATER, waterChart);
+            typeChart.Add(TYPE.GRASS, grassChart);
+            return typeChart[attacker][receiver];
         }
 
     }
